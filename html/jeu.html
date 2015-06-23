@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../css/jeu.css" />
+    <script src="../js/jeu.js"></script>
+    <script src="../js/affichage.js"></script>
+    <script src="../js/init.js"></script>
+    <script src="../js/event.js"></script>
+</head>
+<body onkeyup="Clavier(event)">
+
+    <audio autoplay loop preload="metadata">
+        <source src="../musique/lv2.mp3" type="audio/mpeg">
+        ca ne marche pas ?
+    </audio>
+
+    <span id="aff_score" class="aff_global">
+
+    </span>
+
+    <canvas id="mon_canvas" width="1000" height="500" onclick="Souris(event)">Votre navigateur ne supporte pas les "canvas"
+    </canvas>
+
+    <span id="aff_info" class="aff_global">
+        <img class="aff_fusil" src="../img/fusil_1.png" />
+        <img class="aff_fusil" src="../img/fusil_2.png" />
+        <img class="aff_fusil" src="../img/fusil_3.png" />
+
+
+    </span>
+
+</body>
+</html>

@@ -29,17 +29,17 @@ function Affichage(cibles, image) {
 
 function ChargementAffichage(image) {
 
-    for (var i = couleur.ROUGE; i <= couleur.MULTI; i++) {
+    for (var i = 0; i <= couleur.MULTI; i++) {
         image.push({
             img: new Image()
         });
 
-        image[i].img.src = "img/cible_" + i + ".png";
+        image[i].img.src = "../img/cible_" + i + ".png";
     }
 
     image.push({
         img: new Image()
     });
 
-    image[PAYSAGE].img.src = "img/paysage.jpg";
+    image[PAYSAGE].img.src = "../img/paysage.jpg";
 }
