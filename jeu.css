@@ -1,0 +1,54 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background: #2d2e29;
+}
+
+#mon_canvas
+{
+    border-left: 6px ridge #eae0c2;
+    border-right: 6px ridge #eae0c2;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.aff_fusil
+{
+    width: 115px;
+    height: 75px;
+    display: inline-block;
+}
+
+.aff_global
+{
+    border: 6px ridge #eae0c2;
+    background : #566963;
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 75px;
+    display: block;
+}
+
+#aff_score
+{
+    border-bottom: none;
+}
+
+#aff_info
+{
+    text-align: center;
+    margin-top: 0px;
+    border-top: none;
+}
+
+#aff_balle
+{
+    width: 100px;
+    position: absolute;
+    margin-left: 200px;
+}
