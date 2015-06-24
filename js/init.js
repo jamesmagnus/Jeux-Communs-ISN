@@ -1,3 +1,38 @@
+/* Enumérations */
+var etat = { JEU_EN_COURS: 0, JEU_GAGNE: 1, JEU_PERDU: 2 };
+var couleur = { BLEUE: 0, VERT: 1, ROUGE: 2, MULTI: 3 };
+
+/* Variables globales */
+var nb = 10;
+var color_fusil = couleur.BLEUE;
+var coord_souris_X;
+var coord_souris_Y;
+var detente = false;
+var chargeur = false;
+var left_marge = 0;
+var boucle = true;
+
+
+
+window.onload = function Jeu() {
+    /* On initialise toutes les variables dont on va avoir besoin */
+    var cibles = [];
+    var fusil = [];
+    var image = [];
+    var information = InitialisationJeu(cibles, fusil);
+    
+    ChargementAffichage(image);
+    
+    /* Cette fonction affiche les cibles */
+    Affichage(cibles, image);
+    
+    /* Cette fonction augmente puis diminue la position de chaque cible */
+    Defilement(cibles, information);
+    
+    Souris_Cibles(cibles, fusil, information);
+}
+
+
 /* Cette fonction initialise les éléments du jeu */
 function InitialisationJeu(cibles, fusil) {
     for (var i = 0; i < nb; i++) {
@@ -20,22 +55,4 @@ function InitialisationJeu(cibles, fusil) {
     var information = { nom: "", score: 0, etat: etat.JEU_EN_COURS, nbCibleTouche: 0, vie: 5 };
     
     return information;
-}
-
-window.onload = function Jeu() {
-    /* On initialise toutes les variables dont on va avoir besoin */
-    var cibles = [];
-    var fusil = [];
-    var image = [];
-    var information = InitialisationJeu(cibles, fusil);
-    
-    ChargementAffichage(image);
-    
-    /* Cette fonction affiche les cibles */
-    Affichage(cibles, image);
-    
-    /* Cette fonction augmente puis diminue la position de chaque cible */
-    Defilement(cibles, information);
-    
-    Souris_Cibles(cibles, fusil, information);
 }

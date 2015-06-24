@@ -24,7 +24,9 @@ function Affichage(cibles, image) {
         }
     }
 
+    if(boucle){
     setTimeout(function () { Affichage(cibles, image); }, 1000 / 80);
+    }
 }
 
 function ChargementAffichage(image) {

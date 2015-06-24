@@ -1,20 +1,4 @@
-/* Enumérations */
-var etat = { JEU_EN_COURS: 0, JEU_GAGNE: 1, JEU_PERDU: 2 };
-var couleur = { BLEUE: 0, VERT: 1, ROUGE: 2, MULTI: 3 };
-
-/* Variables globales */
-var nb = 10;
-var color_fusil = couleur.BLEUE;
-var coord_souris_X;
-var coord_souris_Y;
-var detente = false;
-var chargeur = false;
-var left_marge = 0;
-
 /* Fonction du jeu */
-
-
-
 function Defilement(cibles, information) {
     for (var i = 0; i < nb; i++) {   // On decide ici à partir de quel tapis les cibles font perdre de la vie
         if (cibles[i].tapis == 4 && cibles[i].active == true) {
@@ -28,7 +12,7 @@ function Defilement(cibles, information) {
             }
         }
 
-        if (cibles[i].position < 905 && cibles[i].sens) {
+        if (cibles[i].position < 1000 && cibles[i].sens) {
             cibles[i].position += 2;
         }
         else if (cibles[i].sens) {
@@ -36,7 +20,7 @@ function Defilement(cibles, information) {
             cibles[i].tapis++;
         }
 
-        if (cibles[i].position > 0 && !cibles[i].sens) {
+        if (cibles[i].position > -100 && !cibles[i].sens) {
             cibles[i].position -= 2;
         }
         else if (!cibles[i].sens) {
@@ -47,7 +31,7 @@ function Defilement(cibles, information) {
 
     }
 
-    setTimeout(function () { Defilement(cibles, information); }, 1000 / 70);
+    setTimeout(function () { Defilement(cibles, information); }, 1000 / 75);
 }
 
 
@@ -107,8 +91,11 @@ function Souris_Cibles(cibles, fusil, information) {
     //On a gagné le jeu
     if (information.nbCibleTouche == nb) {
 
-        information.etat = etat.JEU_GAGNE;
+        //information.etat = etat.JEU_GAGNE;
         alert('Gagné !');
+        boucle = false;
+    
+        setTimeout(function() { NiveauSupp(cibles,fusil,information)}, 1000 / 80);
         return;
     }
     

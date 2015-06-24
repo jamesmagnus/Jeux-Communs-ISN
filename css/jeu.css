@@ -23,7 +23,7 @@ body
     width: 85px;
     height: 70px;
     border-radius: 4px;
-    border: 2px solid black;
+    border: 4px double black;
     display: inline-block;
 }
 
