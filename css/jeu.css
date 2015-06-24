@@ -50,3 +50,14 @@ body
     margin-top: 0px;
     border-top: none;
 }
+
+#debug
+{
+position: absolute;
+width: 150px;
+height: 500px;
+margin-left: 10px;
+background: white;
+border: 3px solid red;
+overflow: scroll;
+}

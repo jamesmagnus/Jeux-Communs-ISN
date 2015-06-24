@@ -3,16 +3,12 @@ var etat = { JEU_EN_COURS: 0, JEU_GAGNE: 1, JEU_PERDU: 2 };
 var couleur = { BLEUE: 0, VERT: 1, ROUGE: 2, MULTI: 3 };
 
 /* Variables globales */
-var nb = 10;
-var color_fusil = couleur.BLEUE;
-var coord_souris_X;
-var coord_souris_Y;
-var detente = false;
-var chargeur = false;
+var coord_souris_X = -1;
+var coord_souris_Y = -1;
+var clic = false;
+var toucheCode = -1;
 var left_marge = 0;
 var boucle = true;
-
-
 
 window.onload = function Jeu() {
     /* On initialise toutes les variables dont on va avoir besoin */
@@ -21,12 +17,16 @@ window.onload = function Jeu() {
     var image = [];
     var information = InitialisationJeu(cibles, fusil);
     
+    /* Input */
+    GestionSouris(information);
+    GestionClavier(information);
+    
     ChargementAffichage(image);
     
-    /* Cette fonction affiche les cibles */
-    Affichage(cibles, image);
+    /* Cette fonction affiche les cibles et se répète */
+    Affichage(cibles, image, information);
     
-    /* Cette fonction augmente puis diminue la position de chaque cible */
+    /* Cette fonction déplacee chaque cible et se répète */
     Defilement(cibles, information);
     
     Souris_Cibles(cibles, fusil, information);
@@ -35,7 +35,10 @@ window.onload = function Jeu() {
 
 /* Cette fonction initialise les éléments du jeu */
 function InitialisationJeu(cibles, fusil) {
-    for (var i = 0; i < nb; i++) {
+    
+    var information = { nom: "", score: 0, etat: etat.JEU_EN_COURS, nbCibleTouche: 0, nbCible: 1, colorFusil: -1, detente: false, chargeur: false, vie: 5 };
+    
+    for (var i = 0; i < information.nbCible; i++) {
         cibles.push({
                     active: true,
                     position: -110 * i,
@@ -51,8 +54,6 @@ function InitialisationJeu(cibles, fusil) {
                    bonus: false
                    });
     }
-    
-    var information = { nom: "", score: 0, etat: etat.JEU_EN_COURS, nbCibleTouche: 0, vie: 5 };
     
     return information;
 }

@@ -1,16 +1,34 @@
 function Souris(event) {
     
-    detente = true;
+    clic = true;
     
     coord_souris_X = event.clientX - document.getElementById("mon_canvas").offsetLeft;
     coord_souris_Y = event.clientY - document.getElementById("mon_canvas").offsetTop;
+    
+    /* DEBUG */
+    document.getElementById("debug").innerHTML = document.getElementById("debug").innerHTML + "Position: " + coord_souris_X + ", " + coord_souris_Y + "<br>";
+}
+
+function GestionSouris(information){
+    if(clic){
+        information.detente = true;
+        clic = false;
+    }
+    
+    setTimeout(function () { GestionSouris(information); }, 1000 / 50);
 }
 
 function Clavier(event) {
+
+    toucheCode = event.keyCode;
+}
+
+function GestionClavier(information){
     
+    if(toucheCode != -1){
+        
     //Initialisation de la sélection avant le changement de fusil (sauf si on recharge le fusil actuel)
-   
-    if (event.keyCode != 82)
+    if (toucheCode != 82)
     {
         var skill = document.getElementsByClassName("aff_fusil");
         for (var i=0; i<3; i++)
@@ -19,31 +37,34 @@ function Clavier(event) {
         }
     }
     
-    
-    
-    if (event.keyCode == 65) // touche A --> bleu
+    if (toucheCode == 65) // touche A --> bleu
     {
-        color_fusil = couleur.BLEUE;
+        information.colorFusil = couleur.BLEUE;
         skill[0].style.borderColor = "red";
     
     }
     
-    if (event.keyCode == 90) // touche Z --> vert
+    if (toucheCode == 90) // touche Z --> vert
     {
-        color_fusil = couleur.VERT;
+        information.colorFusil = couleur.VERT;
         skill[1].style.borderColor = "red";
         
     }
     
-    if (event.keyCode == 69) // touche E --> rouge
+    if (toucheCode == 69) // touche E --> rouge
     {
-        color_fusil = couleur.ROUGE;
+        information.colorFusil = couleur.ROUGE;
         skill[2].style.borderColor = "red";
     }
     
-    if (event.keyCode == 82) // touche R --> recharge
+    if (toucheCode == 82) // touche R --> recharge
     {
-        chargeur = true;
+        information.chargeur = true;
     }
+    
+    toucheCode = -1;
+    }
+    
+    setTimeout(function () { GestionClavier(information); }, 1000 / 50);
 }
 

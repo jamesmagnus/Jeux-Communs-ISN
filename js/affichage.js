@@ -1,6 +1,6 @@
 var PAYSAGE = couleur.MULTI + 1;
 
-function Affichage(cibles, image) {
+function Affichage(cibles, image, information) {
 
     var canvas = document.getElementById('mon_canvas');
     if (!canvas) {
@@ -18,14 +18,14 @@ function Affichage(cibles, image) {
 
     context.drawImage(image[PAYSAGE].img, 0, 0, 1680, 1050, 0, 0, canvas.width, canvas.height);
 
-    for (var i = 0; i < nb; i++) {
+    for (var i = 0; i < information.nbCible; i++) {
         if (cibles[i].active == true) {
             context.drawImage(image[cibles[i].type].img, 0, 0, 453, 453, cibles[i].position, (cibles[i].tapis * 100), 80, 80);
         }
     }
 
     if(boucle){
-    setTimeout(function () { Affichage(cibles, image); }, 1000 / 80);
+    setTimeout(function () { Affichage(cibles, image, information); }, 1000 / 25);
     }
 }
 
