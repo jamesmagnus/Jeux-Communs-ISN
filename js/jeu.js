@@ -1,6 +1,11 @@
 /* Fonction du jeu */
 
-function GameRenderingLoop(timeStamp){
+function GameRenderingLoop(cibles, fusil, image, information){
+    /* DEBUG */
+    var debugWin = document.getElementById("debug");
+    debugWin.scrollTop = debugWin.scrollHeight;
+    /* */
+    
     Affichage(cibles, image, information);
     
     /* Input */
@@ -12,7 +17,10 @@ function GameRenderingLoop(timeStamp){
     /* Cette fonction déplacee chaque cible */
     Defilement(cibles, information);
     
-    window.requestAnimationFrame(GameRenderingLoop);
+    if(information.etat == etat.JEU_EN_COURS)
+    {
+        window.requestAnimationFrame(function(){GameRenderingLoop(cibles, fusil, image, information)});
+    }
 }
 
 function Defilement(cibles, information) {
@@ -49,7 +57,6 @@ function Defilement(cibles, information) {
 }
 
 
-
 function Souris_Cibles(cibles, fusil, information) {
     
     var detection_cibles_Xmin = 0;
@@ -81,7 +88,9 @@ function Souris_Cibles(cibles, fusil, information) {
             {
                 if (Math.sqrt(((coord_souris_X - centre_cibles_X) * (coord_souris_X - centre_cibles_X)) + ((coord_souris_Y - centre_cibles_Y) * (coord_souris_Y - centre_cibles_Y))) <= 40)
                 {
+                    /* DEBUG */
                     document.getElementById("debug").innerHTML = document.getElementById("debug").innerHTML + "Cible touchée" + "<br>";
+                    /* */
 
                     cibles[i].active = false;
                     information.nbCibleTouche++;
@@ -110,11 +119,36 @@ function Souris_Cibles(cibles, fusil, information) {
     if (information.nbCibleTouche == information.nbCible) {
 
         information.etat = etat.JEU_GAGNE;
-        alert('Gagné !');
-        boucle = false;
-    
-        //setTimeout(function() { NiveauSupp(cibles,fusil,information)}, 1000 / 80);
-        return;
+        information.niveau++;
+        
+        //DEBUG
+        document.getElementById("debug").innerHTML = document.getElementById("debug").innerHTML + "<br> Level Up " + information.niveau + "<br><br>";
+        /* */
+        
+        //// LEVEL UP ////
+        
+        information.etat = etat.JEU_EN_COURS;
+        information.nbCibleTouche = 0;
+        cibles.splice(0, information.nbCible);
+        information.nbCible = Math.ceil(information.nbCible * 1.5);
+        information.detente = false;
+        information.chargeur = false;
+        
+        for(var i = 0; i<3; i++)
+        {
+            fusil[i].recharge = 10;
+        }
+        
+        for (var i = 0; i < information.nbCible; i++) {
+        cibles.push({
+                    active: true,
+                    position: -110 * i,
+                    tapis: 1,
+                    sens: true,
+                    type: Math.floor(Math.random() * 4)
+                    });
+    }
+        
     }
     
     //document.getElementById("nb_balles").value = recharge;
