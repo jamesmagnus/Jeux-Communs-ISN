@@ -84,6 +84,7 @@ function Souris_Cibles(cibles, fusil, information) {
             //on vérifie que la cible est intact et qu'on a choisis le bon fusil
             if ((information.colorFusil != -1) &&
                 (fusil[information.colorFusil].recharge > 0) &&
+                (!fusil[information.colorFusil].coolDown) &&
                 (cibles[i].active == true) &&
                 ((cibles[i].type == information.colorFusil) || (cibles[i].type == couleur.MULTI)))
             {
@@ -99,9 +100,9 @@ function Souris_Cibles(cibles, fusil, information) {
             }  
         }
         
-        if (information.colorFusil != -1 && fusil[information.colorFusil].recharge > 0) {
+        if (information.colorFusil != -1 && fusil[information.colorFusil].recharge > 0 && !fusil[information.colorFusil].coolDown) {
             fusil[information.colorFusil].recharge--;
-
+            ActiveCoolDown(fusil[information.colorFusil]);
         }
 
         information.detente = false;
@@ -157,5 +158,12 @@ function Souris_Cibles(cibles, fusil, information) {
     
 }
 
+function ActiveCoolDown(f){
+    f.coolDown = true;
+    
+    setTimeout(function(){EndCoolDown(f)}, 2000);
+}
 
-
+function EndCoolDown(f){
+    f.coolDown = false;
+}

@@ -42,7 +42,8 @@ function InitialisationJeu(cibles, fusil) {
     for (var i = 0; i < 3; i++) {
         fusil.push({
                    recharge: 10,
-                   bonus: false
+                   bonus: false,
+                   coolDown: false
                    });
     }
     
