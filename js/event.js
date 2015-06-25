@@ -2,11 +2,12 @@ function Souris(event) {
     
     clic = true;
     
-    coord_souris_X = event.clientX - document.getElementById("mon_canvas").offsetLeft;
-    coord_souris_Y = event.clientY - document.getElementById("mon_canvas").offsetTop;
+    coord_souris_X = event.clientX - document.getElementById("mon_canvas").offsetLeft + window.pageXOffset;
+    coord_souris_Y = event.clientY - document.getElementById("mon_canvas").offsetTop + window.pageYOffset;
     
     /* DEBUG */
     document.getElementById("debug").innerHTML = document.getElementById("debug").innerHTML + "Position: " + coord_souris_X + ", " + coord_souris_Y + "<br>";
+    /* */
 }
 
 function GestionSouris(information){
