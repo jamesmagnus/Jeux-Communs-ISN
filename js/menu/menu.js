@@ -10,16 +10,23 @@
 	function ouverture(){
 	  if(!open){
 	    this.innerHTML = "Jouer"; //en re-cliquant ici, il lancera le jeu
+        button.style.backgroundColor = "#B20047";
+        button.style.border = "4px groove #8A2E2E";
 	    classie.add(wrapper, 'opened-nav');
+ 
 	  }
 	  else{
 	    this.innerHTML = "Menu";
 		classie.remove(wrapper, 'opened-nav');
+        button.style.backgroundColor = "#6B4724";
+        button.style.border = "none";
 	  }
 	  open = !open; //changement d'état
 	}
 	function closeWrapper(){
 		classie.remove(wrapper, 'opened-nav');
+    button.style.backgroundColor = "#6B4724";
+    button.style.border = "none";
 	}
 
 })();
