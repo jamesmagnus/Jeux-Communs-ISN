@@ -8,28 +8,19 @@ var coord_souris_Y = -1;
 var clic = false;
 var toucheCode = -1;
 var left_marge = 0;
-var boucle = true;
+
+/* On initialise toutes les variables dont on va avoir besoin */
+var cibles = [];
+var fusil = [];
+var image = [];
+var information;
 
 window.onload = function Jeu() {
-    /* On initialise toutes les variables dont on va avoir besoin */
-    var cibles = [];
-    var fusil = [];
-    var image = [];
-    var information = InitialisationJeu(cibles, fusil);
-    
-    /* Input */
-    GestionSouris(information);
-    GestionClavier(information);
     
     ChargementAffichage(image);
+    information = InitialisationJeu(cibles, fusil);
     
-    /* Cette fonction affiche les cibles et se répète */
-    Affichage(cibles, image, information);
-    
-    /* Cette fonction déplacee chaque cible et se répète */
-    Defilement(cibles, information);
-    
-    Souris_Cibles(cibles, fusil, information);
+    window.requestAnimationFrame(GameRenderingLoop);
 }
 
 

@@ -23,10 +23,6 @@ function Affichage(cibles, image, information) {
             context.drawImage(image[cibles[i].type].img, 0, 0, 453, 453, cibles[i].position, (cibles[i].tapis * 100), 80, 80);
         }
     }
-
-    if(boucle){
-    setTimeout(function () { Affichage(cibles, image, information); }, 1000 / 25);
-    }
 }
 
 function ChargementAffichage(image) {

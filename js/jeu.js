@@ -1,4 +1,20 @@
 /* Fonction du jeu */
+
+function GameRenderingLoop(timeStamp){
+    Affichage(cibles, image, information);
+    
+    /* Input */
+    GestionSouris(information);
+    GestionClavier(information);
+        
+    Souris_Cibles(cibles, fusil, information);
+    
+    /* Cette fonction déplacee chaque cible */
+    Defilement(cibles, information);
+    
+    window.requestAnimationFrame(GameRenderingLoop);
+}
+
 function Defilement(cibles, information) {
     for (var i = 0; i < information.nbCible; i++) {   // On decide ici à partir de quel tapis les cibles font perdre de la vie
         if (cibles[i].tapis == 4 && cibles[i].active == true) {
@@ -30,8 +46,6 @@ function Defilement(cibles, information) {
         }
 
     }
-
-    setTimeout(function () { Defilement(cibles, information); }, 1000 / 25);
 }
 
 
@@ -105,7 +119,6 @@ function Souris_Cibles(cibles, fusil, information) {
     
     //document.getElementById("nb_balles").value = recharge;
     
-    setTimeout(function () { Souris_Cibles(cibles, fusil, information); }, 1000 / 90);
 }
 
 

@@ -14,8 +14,6 @@ function GestionSouris(information){
         information.detente = true;
         clic = false;
     }
-    
-    setTimeout(function () { GestionSouris(information); }, 1000 / 50);
 }
 
 function Clavier(event) {
@@ -64,7 +62,5 @@ function GestionClavier(information){
     
     toucheCode = -1;
     }
-    
-    setTimeout(function () { GestionClavier(information); }, 1000 / 50);
 }
 
