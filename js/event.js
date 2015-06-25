@@ -26,40 +26,36 @@ function GestionClavier(information){
     
     if(toucheCode != -1){
         
-    //Initialisation de la sélection avant le changement de fusil (sauf si on recharge le fusil actuel)
-    if (toucheCode != 82)
-    {
         var skill = document.getElementsByClassName("aff_fusil");
         for (var i=0; i<3; i++)
         {
             skill[i].style.borderColor = "black";
         }
-    }
-    
-    if (toucheCode == 65) // touche A --> bleu
-    {
-        information.colorFusil = couleur.BLEUE;
-        skill[0].style.borderColor = "red";
-    
-    }
-    
-    if (toucheCode == 90) // touche Z --> vert
-    {
-        information.colorFusil = couleur.VERT;
-        skill[1].style.borderColor = "red";
         
-    }
-    
-    if (toucheCode == 69) // touche E --> rouge
-    {
-        information.colorFusil = couleur.ROUGE;
-        skill[2].style.borderColor = "red";
-    }
-    
-    if (toucheCode == 82) // touche R --> recharge
-    {
-        information.chargeur = true;
-    }
+        switch(toucheCode)
+        {
+            case 65:    // touche A --> bleu
+            information.colorFusil = couleur.BLEUE;
+            skill[0].style.borderColor = "red";
+            break;
+            
+            case 90:    // touche Z --> vert
+            information.colorFusil = couleur.VERT;
+            skill[1].style.borderColor = "red";
+            break;
+            
+            case 69:    // touche E --> rouge
+            information.colorFusil = couleur.ROUGE;
+            skill[2].style.borderColor = "red";
+            break;
+            
+            case 82:    // touche R --> recharge
+            information.chargeur = true;
+            break;
+            
+            default:
+            break;
+        }
     
     toucheCode = -1;
     }
