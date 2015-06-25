@@ -19,6 +19,7 @@
 	text-transform: uppercase;
 	cursor: pointer;
 	-webkit-backface-visibility: hidden;
+
 }
 
 .csstransforms .cn-wrapper {

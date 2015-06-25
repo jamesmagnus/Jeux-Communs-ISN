@@ -1,6 +1,6 @@
 @-webkit-keyframes aviseur1 {
-    0%  {left: 0px; top: 0px;}
-    100%{left: 400px; top: 50px;}
+    50%  {left: 0px; top: 0px;}
+    100%{left: 400px; top: 147px;}
 }
 
 @-webkit-keyframes aviseur2 {
@@ -9,6 +9,7 @@
 }
 
 #viseur1{
+    left: -100px;
     position: absolute;
     -webkit-animation-name: aviseur1;
     -webkit-animation-duration: 4s;
