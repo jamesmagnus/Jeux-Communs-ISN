@@ -9,25 +9,25 @@ var clic = false;
 var toucheCode = -1;
 var left_marge = 0;
 
-/* On initialise toutes les variables dont on va avoir besoin */
-var cibles = [];
-var fusil = [];
-var image = [];
-var information;
-
 window.onload = function Jeu() {
     
+    /* On initialise toutes les variables dont on va avoir besoin */
+    var cibles = [];
+    var fusil = [];
+    var image = [];
+    var information;
+
     ChargementAffichage(image);
     information = InitialisationJeu(cibles, fusil);
     
-    window.requestAnimationFrame(GameRenderingLoop);
+    window.requestAnimationFrame(function(){GameRenderingLoop(cibles, fusil, image, information)});
 }
 
 
 /* Cette fonction initialise les éléments du jeu */
 function InitialisationJeu(cibles, fusil) {
     
-    var information = { nom: "", score: 0, etat: etat.JEU_EN_COURS, nbCibleTouche: 0, nbCible: 1, colorFusil: -1, detente: false, chargeur: false, vie: 5 };
+    var information = { nom: "", score: 0, niveau: 1, etat: etat.JEU_EN_COURS, nbCibleTouche: 0, nbCible: 5, colorFusil: -1, detente: false, chargeur: false, vie: 5 };
     
     for (var i = 0; i < information.nbCible; i++) {
         cibles.push({
