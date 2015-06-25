@@ -8,7 +8,7 @@
 	padding-top: 0em;
 	width: 4.5em;
 	height: 4.5em;
-	border: none;
+	border: 2px solid #4B3219;
 	border-radius: 50%;
 	background: none;
 	background-color: #6B4724;
@@ -44,7 +44,7 @@
 	overflow: hidden;
 }
 
-/*cover to prevent extra space of anchors from being clickable*/
+
 .csstransforms .cn-wrapper:after{
   content:".";
   display:block;
@@ -107,9 +107,9 @@
 	border-radius: 50%;
     border: 3px groove #5A5233;
 	background: #996633;
-    background: -webkit-radial-gradient(transparent 35%, #CC7A29 35%);
-	background: -moz-radial-gradient(transparent 35%, #CC7A29 35%);
-	background: radial-gradient(transparent 35%, #CC7A29 35%);
+    background: -webkit-radial-gradient(transparent 35%, #CF5300 35%);
+	background: -moz-radial-gradient(transparent 35%, #CF5300 35%);
+	background: radial-gradient(transparent 35%, #CF5300 35%);
 	color: #fff;
     
 

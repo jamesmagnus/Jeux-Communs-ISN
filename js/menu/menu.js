@@ -19,14 +19,14 @@
 	    this.innerHTML = "Menu";
 		classie.remove(wrapper, 'opened-nav');
         button.style.backgroundColor = "#6B4724";
-        button.style.border = "none";
+        button.style.borderColor = "#4B3219";
 	  }
 	  open = !open; //changement d'état
 	}
 	function closeWrapper(){
 		classie.remove(wrapper, 'opened-nav');
     button.style.backgroundColor = "#6B4724";
-    button.style.border = "none";
+    button.style.borderColor = "#4B3219";
 	}
 
 })();

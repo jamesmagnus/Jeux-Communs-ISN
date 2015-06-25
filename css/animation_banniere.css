@@ -1,0 +1,22 @@
+@-webkit-keyframes aviseur1 {
+    0%  {left: 0px; top: 0px;}
+    100%{left: 400px; top: 50px;}
+}
+
+@-webkit-keyframes aviseur2 {
+    0%  {right: 0px; top: 0px;}
+    100%{right: 400px; top: 50px;}
+}
+
+#viseur1{
+    position: absolute;
+    -webkit-animation-name: aviseur1;
+    -webkit-animation-duration: 4s;
+    animation-
+}
+
+#viseur2{
+    position: absolute;
+    -webkit-animation-name: aviseur2;
+    -webkit-animation-duration: 4s;
+}
