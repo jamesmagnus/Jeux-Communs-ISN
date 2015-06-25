@@ -1,4 +1,4 @@
-function Souris(event) {
+function Souris(event, fusil, information) {
     
     clic = true;
     
@@ -8,6 +8,7 @@ function Souris(event) {
     /* DEBUG */
     document.getElementById("debug").innerHTML = document.getElementById("debug").innerHTML + "Position: " + coord_souris_X + ", " + coord_souris_Y + "<br>";
     /* */
+    
 }
 
 function GestionSouris(information){
@@ -20,6 +21,7 @@ function GestionSouris(information){
 function Clavier(event) {
 
     toucheCode = event.keyCode;
+
 }
 
 function GestionClavier(information){

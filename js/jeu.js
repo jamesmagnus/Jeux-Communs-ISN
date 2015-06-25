@@ -59,6 +59,7 @@ function Defilement(cibles, information) {
 
 function Souris_Cibles(cibles, fusil, information) {
     
+    
     var detection_cibles_Xmin = 0;
     var detection_cibles_Xmax = 0;
 
@@ -114,7 +115,8 @@ function Souris_Cibles(cibles, fusil, information) {
         fusil[information.colorFusil].recharge = 10;
         chargeur = false;
     }
-
+    
+    
     //On a gagné le jeu
     if (information.nbCibleTouche == information.nbCible) {
 

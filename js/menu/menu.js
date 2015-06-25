@@ -11,7 +11,7 @@
 	  if(!open){
 	    this.innerHTML = "Jouer"; //en re-cliquant ici, il lancera le jeu
         button.style.backgroundColor = "#B20047";
-        button.style.border = "4px groove #8A2E2E";
+        button.style.border = "3px solid #8A2E2E";
 	    classie.add(wrapper, 'opened-nav');
  
 	  }
