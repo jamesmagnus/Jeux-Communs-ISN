@@ -8,9 +8,13 @@
 		<link rel="stylesheet" type="text/css" href="css/menu.css" />
         <link rel="stylesheet" type="text/css" href="css/animation_banniere.css" />
 		
+        <!-- MENU -->
         <script src="js/menu/compatibilite.js"></script>
+        <script src="js/menu/polyfills.js"></script>
+  
 
-
+        <!-- BANNIERE -->
+        <script src="js/menu/anim_banniere.js"></script>
 
 
 	</head>
@@ -19,9 +23,17 @@
 
 
 			<div class="component">
+        
                 
+                <!-- animation avec Atarget()-->
                 <img id="viseur1" src="img/viseur.png" width="90px" height="90px"/>
                 <img id="viseur2" src="img/viseur.png" width="90px" height="90px"/>
+                
+                <!-- animation avec Acercle() -->
+                <div class="cercles" id="cercle_1"></div>
+                <div class="cercles" id="cercle_2"></div>
+                <div class="cercles" id="cercle_3"></div>
+                <div class="cercles" id="cercle_4"></div>
                 
 				<!-- MENU -->
 				<button class="cn-button" id="cn-button">Menu</button>
@@ -38,8 +50,9 @@
             
             <div class="contenu" id="home"></div>
             
-		<script src="js/menu/polyfills.js"></script>
-		<script src="js/menu/menu.js"></script>
+            
+            <!-- affichage du menu -->
+            <script src="js/menu/menu.js"></script>
 	  
 
 	</body>
